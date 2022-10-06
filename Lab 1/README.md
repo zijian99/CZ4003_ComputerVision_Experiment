@@ -6,7 +6,7 @@
 This laboratory aims to introduce image processing in MATLAB context. In this laboratory you will:<br><br>
 a. Become familiar with the MATLAB and Image Processing Toolbox software package.<br>
 b. Experiment with the point processing operations of contrast stretching and histogram
-equalization.<br><br>
+equalization.<br>
 c. Evaluate how different Gaussian and median filters are suitable for noise removal.<br>
 d. Become familiar with the frequency domain operations<br>
 e. Understand imaging geometry<br>
