@@ -2,7 +2,7 @@
 ### Year 2022/23 Semester 1 CZ4003 Computer Vision Lab Experiment 1
 <br>
 <br>
-<b>Objectives</b>
+<b>Objectives</b><br><br>
 This laboratory aims to introduce image processing in MATLAB context. In this laboratory you will:<br><br>
 a. Become familiar with the MATLAB and Image Processing Toolbox software package.<br>
 b. Experiment with the point processing operations of contrast stretching and histogram
