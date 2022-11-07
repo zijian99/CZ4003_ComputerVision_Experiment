@@ -502,21 +502,21 @@ title("Result: Disparity Map D of Triclops");
 %     iii. Input the disparity into the disparity map with the same Pl pixel 
 %     coordinates. 
 
-function [result] = disparityMap(pLeft, pRight, rowDim, colDim)
+function [result] = disparityMap(imageLeft, imageRight, noOfrow, noOfcol)
     % Convert image matrix to double
-    pLeft = im2double(pLeft);
-    pRight = im2double(pRight);
+    imageLeft = im2double(imageLeft);
+    imageRight = im2double(imageRight);
     
     % Obtain the dimension of left image
-    [height, width] = size(pLeft); 
+    [height, width] = size(imageLeft); 
  
     % Get the disparity range and the template dimensions
-    rowLength = floor(rowDim/2);
-    colLength = floor(colDim/2);
+    rowLength = floor(noOfrow/2);
+    colLength = floor(noOfcol/2);
     dispRange = 15;
     
     % Initialise matrix of 0s
-    result = zeros(size(pLeft));
+    result = zeros(size(imageLeft));
 
     % Outer loop - each pixel along the matrix column
     for i = 1:height
@@ -535,7 +535,7 @@ function [result] = disparityMap(pLeft, pRight, rowDim, colDim)
             maxDisp = min(dispRange, width - maxCol);
             
             % Obtain the template from the right image
-            dispTemplate = pRight(minRow:maxRow, minCol:maxCol);
+            dispTemplate = imageRight(minRow:maxRow, minCol:maxCol);
 
             % Initialise the variables for SSD comparison
             minSSD = inf;
@@ -546,7 +546,7 @@ function [result] = disparityMap(pLeft, pRight, rowDim, colDim)
                 % Get the difference between left and right images
                 newMinCol = minCol + k;
                 newMaxCol = maxCol + k;
-                block = pLeft(minRow:maxRow, newMinCol:newMaxCol);
+                block = imageLeft(minRow:maxRow, newMinCol:newMaxCol);
                 
                 % Perform SSD
                 squaredDifference = (dispTemplate - block).^2;
